@@ -14,7 +14,12 @@ router.post("/assign-task",(req,res)=>{
 router.get("/viewtasks",(req,res)=>{
     res.send("View tasks route");
 });
-router.delete("/deleteEmp",(req,res)=>{
-    res.send("Delete Employees route");
+router.delete("/deleteEmp/:id",async(req,res)=>{
+    let result=await users.findByIdAndDelete(req.params.id)
+    if (result){
+        res.send("employeee delete successfully");
+    }else{
+    res.send("no user found");
+    }
 });
 module.exports=router;

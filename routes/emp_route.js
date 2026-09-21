@@ -30,4 +30,13 @@ router.get("/viewtasks",(req,res)=>{
 router.put("/updatestatus",(req,res)=>{
     res.send("Update status route");
 });
+router.patch("/updateprofile/:id",async(req,res)=>{
+    let data=req.body;
+    if(data.password){
+        data.password=await bcrypt.hash(data.password,10);
+        }
+        let result=await users.findByIdAndUpdate(req.params.id,data,{new:true});
+        res.send(result);
+});
+
 module.exports=router;
