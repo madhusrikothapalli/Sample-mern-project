@@ -1,9 +1,9 @@
 function Footer(){
     return(
         <div>
-        <footer>@copyrights 2026 - madhu</footer>
+            <footer>@ copyrights 2026 - MadhuSri</footer>
         </div>
-
     )
+
 }
-export default Footer
+export default Footer;
